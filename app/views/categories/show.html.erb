@@ -1,0 +1,8 @@
+<h1><%= @category.title %></h1>
+
+<% @category.posts.each do |post| %>
+  <b>ID </b><%= post.id %>
+  <b>Title </b>
+  <%= link_to post.title, post_path(post) %>
+  <b>Description </b><%= post.text %><br>
+<% end %>

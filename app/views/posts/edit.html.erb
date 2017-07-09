@@ -1,0 +1,9 @@
+<h1>Editing <%= @post.title %></h1>
+
+<% if @post.errors.any? %>
+  <h3>
+    <%= @post.errors.full_messages.join(", ") %>
+  </h3>
+<% end %>
+
+<%= render partial: "form" %>
