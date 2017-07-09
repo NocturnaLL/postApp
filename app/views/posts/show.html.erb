@@ -14,6 +14,7 @@ Display Post<br /><br />
   <div class="panel-body">
 
     <% @post.comments.each do |comment| %>
+      <small><%= comment.user.email %> says:</small>
       <p><%= comment.body %></p>
     <% end %>
 
@@ -38,6 +39,8 @@ Display Post<br /><br />
 
 <%= link_to "Back to idea list", posts_path %>
 <br/>
+<% if current_user.present? and current_user.id == @post.user_id %>
 <%= link_to "Edit idea", edit_post_path(@post) %>
 
 <%= link_to "Delete", post_path(@post), method: :delete %>
+<%end%>

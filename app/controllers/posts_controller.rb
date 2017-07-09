@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+before_action :authenticate_user!, except: [:show, :index]
 before_action :set_post, only: [:show, :update, :edit, :destroy]
-
+before_action :authorize_user!, only: [:edit, :update, :destroy]
   def new
     @post = Post.new
     load_categories
@@ -15,7 +16,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     if @post.save
       redirect_to post_path(@post)
@@ -42,6 +43,10 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
   def destroy
     @post.destroy
     redirect_to posts_path
+  end
+
+  def authorize_user!
+    redirect_to root_path, notice: "Not authorized" unless @post.user_id == current_user.id
   end
 
   def load_categories
