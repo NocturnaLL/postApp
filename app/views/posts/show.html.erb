@@ -1,11 +1,11 @@
-Display Post<br /><br />
+Display post<br /><br />
 
-<b>ID </b><%= @post.id %><br />
-<b>Title </b><%= @post.title %><br />
-<b>Description </b><%= @post.text %><br />
+<b>ID:  </b><%= @post.id %><br />
+<b>Title:  </b><%= @post.title %><br />
+<b>text:  </b><%= @post.text %><br />
 <b>Category: </b><%= @post.category.title %>
 
-<br/><br/>
+<br /><br /><br />
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -21,26 +21,27 @@ Display Post<br /><br />
   </div>
 </div>
 
-<br/><br/>
-
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    Send a new comment
+<% if current_user.present? %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Send a new comment
+    </div>
+    <div class="panel-body">
+      <%= form_for [@post, @post.comments.build] do |f| %>
+        <%= f.text_area :body, rows: 5 %><br>
+        <%= f.submit 'Send' %>
+      <% end %>
+    </div>
   </div>
-  <div class="panel-body">
-    <%= form_for [@post, @post.comments.build] do |f| %>
-      <%= f.text_area :body, rows: 5 %><br>
-      <%= f.submit 'Send' %>
-    <% end %>
-  </div>
-</div>
+<% end %>
+
 
 <br/><br/>
+<%= link_to "Back to post list", posts_path %>
 
-<%= link_to "Back to idea list", posts_path %>
-<br/>
 <% if current_user.present? and current_user.id == @post.user_id %>
-<%= link_to "Edit idea", edit_post_path(@post) %>
-
-<%= link_to "Delete", post_path(@post), method: :delete %>
-<%end%>
+  <br/>
+  <%= link_to "Edit post", edit_post_path(@post) %>
+  <br/>
+  <%= link_to "Sil", post_path(@post), method: :delete %>
+<% end %>

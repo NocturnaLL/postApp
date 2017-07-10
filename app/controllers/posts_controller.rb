@@ -12,7 +12,7 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
   end
 
   def show
-    @comment = @post.comments.new
+    
   end
 
   def create
