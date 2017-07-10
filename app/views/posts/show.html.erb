@@ -14,8 +14,13 @@ Display post<br /><br />
   <div class="panel-body">
 
     <% @post.comments.each do |comment| %>
-      <small><%= comment.user.email %> says:</small>
-      <p><%= comment.body %></p>
+    <small><%= comment.user.email %> says:</small>
+     <p>
+        <%= comment.body %>
+        <% if current_user.present? && comment.user_id == current_user.id %>
+          <small><%= link_to "Delete", post_comment_path(@post, comment), method: :delete %></small>
+       <% end %>
+      </p>
     <% end %>
 
   </div>
