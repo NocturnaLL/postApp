@@ -1,6 +1,11 @@
 <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %> alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <%= value %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= value %>
     </div>
 <% end %>
+
+
+<script>
+    $('.alert').fadeOut(4000);
+</script>

@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     redirect_to @post
-    flash[:danger] = "Comment deleted."
+    flash[:success] = "Comment deleted."
 
   end
 
