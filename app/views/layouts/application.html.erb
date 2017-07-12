@@ -9,18 +9,40 @@
     </head>
   <body>
 
-  <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %> alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <%= value %>
-      </div>
-  <% end %>
 
   <!-- this is code we will cut out and put inside menu partial -->
 
   <%= render 'layouts/flash_messages' %>
   <%= render 'layouts/menu' %>
   <!-- this is code we will cut out -->
+
+  <nav class="navbar navbar-default" role="navigation">
+           <div class="container">
+
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                   </button>
+                   <%= link_to "Demo App", root_path, class: 'navbar-brand' %>
+               </div>
+
+               <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+                   <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to 'Posts', posts_path %></li>
+                        <% if current_user %>
+                            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+                        <% else %>
+                            <li><%= link_to 'Login', new_user_session_path %></li>
+                        <% end %>
+                   </ul>
+               </div>
+           </div>
+       </nav>
+
 
   <div class="container">
     <%= yield %>

@@ -8,9 +8,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     if(@comment.save)
-      redirect_to @post, notice: 'Comment saved.'
+      redirect_to @post
+      flash[:success] = 'Comment saved.'
     else
-      redirect_to @post, notice: 'Comment could not saved.'
+      redirect_to @post
+      flash[:danger] = "Comment couldn't saved."
     end
   end
 
@@ -18,7 +20,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @post, notice: "Comment was deleted."
+    redirect_to @post
+    flash[:danger] = "Comment deleted."
+
   end
 
   def set_post

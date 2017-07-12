@@ -8,11 +8,11 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def show
-    
+
   end
 
   def create
@@ -42,6 +42,7 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def destroy
     @post.destroy
+    flash[:success] = "Post deleted."
     redirect_to posts_path
   end
 

@@ -1,6 +1,6 @@
-Display post<br /><br />
+<h2>Display Post</h2>
 
-<b>ID:  </b><%= @post.id %><br />
+<strong>By: </strong><%= @post.user.name %><br />
 <b>Title:  </b><%= @post.title %><br />
 <b>text:  </b><%= @post.text %><br />
 <b>Category: </b><%= @post.category.title %>
@@ -9,14 +9,14 @@ Display post<br /><br />
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    Comments
+    <h4>Comments</h4>
   </div>
   <div class="panel-body">
 
     <% @post.comments.each do |comment| %>
 
      <p>
-       <%= comment.user.email %> says:
+       <strong><%= comment.user.name %>:</strong>
         <%= comment.body %>
         <% if current_user.present? && comment.user_id == current_user.id %>
           <small><%= link_to "Delete", post_comment_path(@post, comment), method: :delete %></small>
@@ -30,7 +30,7 @@ Display post<br /><br />
 <% if current_user.present? %>
   <div class="panel panel-primary">
     <div class="panel-heading">
-      Send a new comment
+      <h4>Send a new comment <i>(Comment can't be blank)</i></h4>
     </div>
     <div class="panel-body">
       <%= form_for [@post, @post.comments.build] do |f| %>
@@ -49,5 +49,5 @@ Display post<br /><br />
   <br/>
   <%= link_to "Edit post", edit_post_path(@post) %>
   <br/>
-  <%= link_to "Sil", post_path(@post), method: :delete %>
+  <%= link_to "Sil", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this permanently?"}%>
 <% end %>

@@ -1,13 +1,17 @@
+
 <%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, placeholder: 'title', class: "form-control input-sm" %><br>
-  <br>
-  <%= f.label :text %>
-  <br>
-  <%= f.text_area :text, placeholder: "description", rows: 10 %><br>
-  <br>
-  <%= f.select :category_id, @categories %>
-   <br />
-   <br />
-  <%= f.submit 'Send' %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="form-group">
+            <%= f.label :title, class: 'control-label' %> <i>(Title can't be blank)</i>
+            <%= f.text_field :title, class: 'form-control' %>
+        </div>
+
+        <div class="form-group>
+            <%= f.label :text, class: 'control-label' %>
+            <%= f.text_area :text, class: 'form-control', rows: 6 %>
+        </div><br>
+
+        <%= f.select :category_id, @categories %><br><br>
+
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
 <% end %>

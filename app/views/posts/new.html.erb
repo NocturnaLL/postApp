@@ -1,10 +1,3 @@
 <h1>Create a new Post</h1>
 
-<% if @post.errors.any? %>
-  <h3>
-    <%= @post.errors.full_messages.join(", ") %>
-  </h3>
-<% end %>
-
-
 <%=render "form" %>
