@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+  has_many :sent_invites, class_name: "Relationship", foreign_key: :inviting_id
+  has_many :received_invites, class_name: "Relationship", foreign_key: :invited_id
+  has_many :invited_users, through: :sent_invites, source: :invited_user
+  has_many :inviting_users, through: :received_invites, source: :inviting_user
 
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
