@@ -8,9 +8,11 @@
 <br /><br /><br />
 
 <div class="panel panel-default">
+  <%if @post.comments.any?%>
   <div class="panel-heading">
     <h4>Comments</h4>
   </div>
+
   <div class="panel-body">
 
     <% @post.comments.each do |comment| %>
@@ -25,6 +27,7 @@
     <% end %>
 
   </div>
+    <%end%>
 </div>
 
 <% if current_user.present? %>

@@ -59,3 +59,5 @@ gem 'bootstrap-sass'
 
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+
+gem 'jquery-rails'

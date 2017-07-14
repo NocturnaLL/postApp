@@ -8,7 +8,7 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
   end
 
   def index
-    @posts = Post.order('created_at DESC').page(params[:page]).per(10)
+    @posts = Post.order('created_at DESC').page(params[:page]).per(9)
   end
 
   def show

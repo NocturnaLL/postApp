@@ -1,4 +1,5 @@
 @import "bootstrap";
+
 $navbar-default-border: #e5e5e5;
 $navbar-margin-bottom: 50px;
 
@@ -6,7 +7,12 @@ $navbar-margin-bottom: 50px;
 .alert-notice { @extend .alert-info; }
 .alert-alert { @extend .alert-danger; }
 
-
+.alert {
+   top: 50px;
+   left:0;
+   right: 0;
+   position:absolute;
+}
 
 
 .round-image-50 {
