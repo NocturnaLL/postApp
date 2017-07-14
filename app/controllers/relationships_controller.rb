@@ -21,6 +21,7 @@ class RelationshipsController < ApplicationController
   def index
     @sent_invites = current_user.sent_invites.page(params[:page])
     @received_invites = current_user.received_invites.page(params[:page])
+    
   end
 
 

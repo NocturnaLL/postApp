@@ -14,8 +14,21 @@
     <%= paginate(@received_invites) %>
     <ul>
       <% @received_invites.each do |invitation| %>
-          <li><%= link_to invitation.invited_user.full_name, user_path(invitation.invited_user) %></li>
+          <li><%= link_to invitation.inviting_user.full_name, user_path(invitation.inviting_user) %></li>
       <% end %>
     </ul>
     <%= paginate(@received_invites) %>
 <% end %>
+
+<%-# First loop iterates invited relations, second loop for recieved relations-%>
+
+<h3>Friends</h3>
+<% @sent_invites.each do |invited| %>
+  <% @received_invites.each do |received| %>
+    <% if invited.invited_user.full_name == received.inviting_user.full_name %>
+    <ul>
+      <li><%= link_to invited.invited_user.full_name, user_path(invited.invited_user) %></li>
+      <%end%>
+    </ul>
+  <%end%>
+<%end%>
