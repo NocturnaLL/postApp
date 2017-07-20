@@ -5,7 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-u = User.create(email: "admin@admin.com", password: 123456)
+u = User.create(email: "admin@admin.com", password: 123456, name: 'Burak Fidansoy')
+u2 = User.create(email: "user@user.com", password: 123456, name: 'Utku Balcı')
+u3 = User.create(email: "user2@user.com", password: 123456, name: 'Kerem Tuncer')
+u4 = User.create(email: "user3@user.com", password: 123456, name: 'Yalvaç Top')
+u5 = User.create(email: "user4@user.com", password: 123456, name: 'Bünyamin Iseri')
+u6 = User.create(email: "user5@user.com", password: 123456, name: 'Alişan Kaya')
+u7 = User.create(email: "user6@user.com", password: 123456, name: 'Burak Öz')
+u8 = User.create(email: "user7@user.com", password: 123456, name: 'Buğra Kalaycı')
 
 c1 = Category.create(title: "Genel", text: 'Genel kategorimiz burasıdır.')
 c2 = Category.create(title: "RoR", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')

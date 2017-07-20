@@ -33,7 +33,7 @@
 <% if current_user.present? %>
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h4>Send a new comment <i>(Comment can't be blank)</i></h4>
+      <h4>Leave  a new comment <i>(Comment can't be blank)</i></h4>
     </div>
     <div class="panel-body">
       <%= form_for [@post, @post.comments.build] do |f| %>

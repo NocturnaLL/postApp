@@ -47,7 +47,7 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
   end
 
   def authorize_user!
-    redirect_to root_path, notice: "Not authorized" unless @post.user_id == current_user.id
+    redirect_to root_path, flash[:danger] = "Not authorized" unless @post.user_id == current_user.id
   end
 
   def load_categories
@@ -60,6 +60,7 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
   end
 
   def post_params
-    params.require(:post).permit(:title, :text, :category_id)
+
+    params.require(:post).permit(:title, :text, :category_id, :avatar)
   end
 end
