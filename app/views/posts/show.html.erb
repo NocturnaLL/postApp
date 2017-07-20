@@ -4,6 +4,8 @@
 <b>Title:  </b><%= @post.title %><br />
 <b>text:  </b><%= @post.text %><br />
 <b>Category: </b><%= @post.category.title %>
+<li class="round-image-450"><%= image_tag(@post.avatar.url(:medium)) %></li>
+
 
 <br /><br /><br />
 
