@@ -8,12 +8,17 @@ class RelationshipsController < ApplicationController
 
     @relationship = current_user.sent_invites.build(invited_id: @invited_user.id)
 
-    if @relationship.save
+    if @invited_user.id!=current_user.id
+      if @relationship.save
         flash[:success] = "Successfully invited"
         redirect_to @invited_user
-    else
+      else
         flash[:danger] = "Couldn't invited"
         redirect_to @invited_user
+      end
+    else
+      redirect_to @invited_user
+      flash[:danger] = "Couldn't invited"
     end
   end
 
@@ -21,7 +26,7 @@ class RelationshipsController < ApplicationController
   def index
     @sent_invites = current_user.sent_invites.page(params[:page])
     @received_invites = current_user.received_invites.page(params[:page])
-    
+
   end
 
 

@@ -1,5 +1,5 @@
 <% if @sent_invites.any? %>
-    <h3>Invited user</h3>
+    <h3>Sent friend request</h3>
     <%= paginate(@sent_invites) %>
     <ul>
       <% @sent_invites.each do |invitation| %>
@@ -10,7 +10,7 @@
 <% end %>
 
 <% if @received_invites.any? %>
-    <h3>Invitations received</h3>
+    <h3>Received friends request</h3>
     <%= paginate(@received_invites) %>
     <ul>
       <% @received_invites.each do |invitation| %>
