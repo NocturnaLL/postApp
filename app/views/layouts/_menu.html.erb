@@ -14,14 +14,16 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              
+
                 <li><%= link_to 'Posts', posts_path %></li>
                 <li><%= link_to 'Members', users_path %></li>
                 <% if current_user %>
+                <li><%= link_to 'New Post', new_post_path%></li>
                 <div class="dropdown">
                 <button class="dropbtn">
                 <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li></button>
                 <div class="dropdown-content">
+
                   <li><%= link_to 'Profile', user_path(current_user) %></li>
                   <li><%= link_to 'Friends', relationships_path %></li>
                   <li><%= link_to 'Edit Profile',edit_user_registration_path %></li

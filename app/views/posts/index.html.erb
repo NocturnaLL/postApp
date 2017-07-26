@@ -1,17 +1,15 @@
 
 
 
-<%= link_to 'New Post', new_post_path %>
-
-
 <div class="container">
   <%= paginate(@posts) %>
+
 
         <% @posts.each do |p| %>
         <div class="panel panel-default">
             <%= link_to post_path(p) do %>
             <div class="panel-body">
-              <li class="round-image-50"><%= image_tag(p.avatar.url(:thumb)) %></li>
+              <li class="round-image-300"><%= image_tag(p.avatar.url(:thumb)) %></li>
               <p><small><strong>By:</strong> <%= p.user.email %></small></p>
               <p><%= p.text %></p>
 
