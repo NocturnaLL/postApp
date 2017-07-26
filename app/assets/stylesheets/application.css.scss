@@ -15,14 +15,15 @@ $navbar-margin-bottom: 50px;
 }
 
 
+
 .round-image-450{
   background-color: white;
   border: 1px solid #d9d9d9;
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
-  height: 450px;
-  width: 450px;
+  height: 300px;
+  width: 700px;
   overflow: hidden;
   text-align: center;
   img { width: 100% }
@@ -128,7 +129,7 @@ $navbar-margin-bottom: 50px;
 }
 
 .dropbtn {
-    background-color: #f8f8f8;
+    background-color: black;
     color: #f1f1f1;
     font-size: 16px;
     border: none;
@@ -162,5 +163,5 @@ $navbar-margin-bottom: 50px;
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #f8f8f8;
+    background-color: white;
 }

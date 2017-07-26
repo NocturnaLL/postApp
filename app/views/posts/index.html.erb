@@ -1,22 +1,104 @@
 
 
-
 <div class="container">
-  <%= paginate(@posts) %>
+
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+                <%= paginate(@posts) %>
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+                  <% @posts.each do |p| %>
+                <!-- First Blog Post -->
+                <h2>
+                    <%= link_to p.title, post_path(p) %>
+                </h2>
+                <p class="lead">
+                    by <%= link_to p.user.name, user_path(p.user.id) %>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span><%= p.created_at %> </p>
+                <hr>
+                <li class="round-image-450"><%= link_to image_tag(p.avatar.url(:medium)), post_path(p) %></li>
+
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+
+                <a class="btn btn-primary" <%= link_to "Read More", post_path(p) %> </a>
+                <hr>
+                <% end %>
+              <%= paginate(@posts) %>
 
 
-        <% @posts.each do |p| %>
-        <div class="panel panel-default">
-            <%= link_to post_path(p) do %>
-            <div class="panel-body">
-              <li class="round-image-300"><%= image_tag(p.avatar.url(:thumb)) %></li>
-              <p><small><strong>By:</strong> <%= p.user.email %></small></p>
-              <p><%= p.text %></p>
 
             </div>
-            <% end %>
-        </div>
-        <% end %>
 
-    <%= paginate(@posts) %>
-</div>
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input class="form-control" type="text">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+
+
+    </div>
