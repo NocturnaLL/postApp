@@ -14,8 +14,12 @@ u6 = User.create(email: "user5@user.com", password: 123456, name: 'Alişan Kaya'
 u7 = User.create(email: "user6@user.com", password: 123456, name: 'Burak Öz')
 u8 = User.create(email: "user7@user.com", password: 123456, name: 'Buğra Kalaycı')
 
-c1 = Category.create(title: "Genel", text: 'Genel kategorimiz burasıdır.')
-c2 = Category.create(title: "RoR", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
+c1 = Category.create(title: "Education", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
+c2 = Category.create(title: "Personal", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
+c3 = Category.create(title: "Photography", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
+c4 = Category.create(title: "Cooking", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
+c5 = Category.create(title: "Sport", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
+c6 = Category.create(title: "Technology", text: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.')
 
 Post.create(title: 'Züper Fikir', text: 'Über Züper Fikir', category: c1, user: u)
 Post.create(title: 'Süper Fikir!', text: 'Bence bilişim terimleri tekrar düzenlensin.', category_id: c1.id, user: u)
